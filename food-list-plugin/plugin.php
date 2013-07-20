@@ -51,7 +51,7 @@ class Food_List extends WP_Widget {
 		// TODO:	replace 'widget-name-locale' to be named more plugin specific. Other instances exist throughout the code, too.
 		parent::__construct(
 			'food-list-id',
-			__( 'Widget Name', 'food-list-locale' ),
+			__( 'Food List', 'food-list-locale' ),
 			array(
 				'classname'		=>	'food-list-class',
 				'description'	=>	__( 'Food list widget plugin.', 'food-list-locale' )
@@ -80,15 +80,15 @@ class Food_List extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		extract( $args, EXTR_SKIP );
+//		extract( $args, EXTR_SKIP );
 
-		echo $before_widget;
+//		echo $before_widget;
 
 		// TODO:	Here is where you manipulate your widget's values based on their input fields
 
 		include( plugin_dir_path( __FILE__ ) . '/views/widget.php' );
 
-		echo $after_widget;
+//		echo $after_widget;
 
 	} // end widget
 
@@ -103,6 +103,9 @@ class Food_List extends WP_Widget {
 		$instance = $old_instance;
 
 		// TODO:	Here is where you update your widget's old values with the new, incoming values
+		$instance['title'] = $new_instance['title'];
+		$instance['number'] = $new_instance['number'];
+		$instance['show_date'] = $new_instance['show_date'];
 
 		return $instance;
 
@@ -137,7 +140,7 @@ class Food_List extends WP_Widget {
 	public function widget_textdomain() {
 
 		// TODO be sure to change 'widget-name' to the name of *your* plugin
-		load_plugin_textdomain( 'widget-name-locale', false, plugin_dir_path( __FILE__ ) . '/lang/' );
+		load_plugin_textdomain( 'food-list-locale', false, plugin_dir_path( __FILE__ ) . '/lang/' );
 
 	} // end widget_textdomain
 
@@ -165,7 +168,7 @@ class Food_List extends WP_Widget {
 	public function register_admin_styles() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_style( 'widget-name-admin-styles', plugins_url( 'widget-name/css/admin.css' ) );
+		wp_enqueue_style( 'food-list-admin-styles', plugins_url( 'food-list/css/admin.css' ) );
 
 	} // end register_admin_styles
 
@@ -175,7 +178,7 @@ class Food_List extends WP_Widget {
 	public function register_admin_scripts() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_script( 'widget-name-admin-script', plugins_url( 'widget-name/js/admin.js' ), array('jquery') );
+		wp_enqueue_script( 'food-list-admin-script', plugins_url( 'food-list/js/admin.js' ), array('jquery') );
 
 	} // end register_admin_scripts
 
@@ -185,7 +188,7 @@ class Food_List extends WP_Widget {
 	public function register_widget_styles() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_style( 'widget-name-widget-styles', plugins_url( 'widget-name/css/widget.css' ) );
+		wp_enqueue_style( 'food-list-widget-styles', plugins_url( 'food-list/css/widget.css' ) );
 
 	} // end register_widget_styles
 
@@ -195,11 +198,11 @@ class Food_List extends WP_Widget {
 	public function register_widget_scripts() {
 
 		// TODO:	Change 'widget-name' to the name of your plugin
-		wp_enqueue_script( 'widget-name-script', plugins_url( 'widget-name/js/widget.js' ), array('jquery') );
+		wp_enqueue_script( 'food-list-script', plugins_url( 'food-list/js/widget.js' ), array('jquery') );
 
 	} // end register_widget_scripts
 
 } // end class
 
 // TODO:	Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("Widget_Name");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("Food_List");' ) );
