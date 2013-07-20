@@ -1,19 +1,19 @@
 <?php
 /*
-Plugin Name: TODO
-Plugin URI: TODO
-Description: TODO
+Plugin Name: Food List
+Plugin URI: https://github.com/apottere/Food-List
+Description: Food list widget plugin.
 Version: 1.0
-Author: TODO
-Author URI: TODO
-Author Email: TODO
-Text Domain: widget-name-locale
+Author: Andrew Potter
+Author URI: https://www.github.com/apottere
+Author Email: apottere@gmail.com
+Text Domain: food-list-locale
 Domain Path: /lang/
 Network: false
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Copyright 2012 TODO (email@domain.com)
+Copyright 2012 Andrew Potter (apottere@gmail.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -29,8 +29,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-// TODO: change 'Widget_Name' to the name of your plugin
-class Widget_Name extends WP_Widget {
+class Food_List extends WP_Widget {
 
 	/*--------------------------------------------------*/
 	/* Constructor
@@ -49,14 +48,13 @@ class Widget_Name extends WP_Widget {
 		register_activation_hook( __FILE__, array( $this, 'activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 
-		// TODO:	update classname and description
 		// TODO:	replace 'widget-name-locale' to be named more plugin specific. Other instances exist throughout the code, too.
 		parent::__construct(
-			'widget-name-id',
-			__( 'Widget Name', 'widget-name-locale' ),
+			'food-list-id',
+			__( 'Widget Name', 'food-list-locale' ),
 			array(
-				'classname'		=>	'widget-name-class',
-				'description'	=>	__( 'Short description of the widget goes here.', 'widget-name-locale' )
+				'classname'		=>	'food-list-class',
+				'description'	=>	__( 'Food list widget plugin.', 'food-list-locale' )
 			)
 		);
 
